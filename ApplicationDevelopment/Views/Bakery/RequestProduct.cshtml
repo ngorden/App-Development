@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Request Product";
+}
+
+<h2>Suggest Something New!</h2>
+
+<form action="/Bakery/RequestProduct" method="post">
+    <div class="form-group">
+        <label for="name">Suggested Name</label>
+        <input class="form-control" type="text" id="name" name="name" />
+    </div>
+    <div class="form-group">
+        <label for="description">Describe the Product</label>
+        <textarea class="form-control" id="description" name="description"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn-success" value="Suggest" />
+    </div>
+</form>
+
+<script>
+    $(document).ready(onReady)
+
+    function onReady() {
+        var formData = document.querySelector('form').serialize()
+        $.ajax({
+            type: "POST",
+            url: "/Bakery/RequestProduct",
+            data: formData,
+            success: onSuccess
+        })
+    }
+
+    function onSuccess(data) { }
+</script>

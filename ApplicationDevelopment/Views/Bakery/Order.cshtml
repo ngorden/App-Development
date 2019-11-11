@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Order";
+}
+
+<h2>Place an Order</h2>
+
+<form action="/Bakery/Order" method="post">
+    <div class="form-group">
+        <label for="product">Order:</label>
+        <input type="text" class="form-control" id="product" name="product" required />
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="text" class="form-control" id="quantity" name="quantity" required />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
+    </div>
+</form>
+
+<script>
+    $(document).ready(onReady)
+
+    function onReady() {
+        var formData = document.querySelector("form").serialize()
+        $.ajax({
+            method: "POST",
+            url: "/Bakery/Order",
+            data: formData,
+            success: onSuccess
+        })
+    }
+
+    function onSuccess(data) { }
+</script>

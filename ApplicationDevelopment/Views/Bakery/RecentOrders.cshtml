@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.Order>
+@{
+    ViewBag.Title = "Recent Orders";
+}
+
+<h2>Recently Purchased Products</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>Product Name</td>
+            <td>Ordered On</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Timestamp</td>
+            </tr>
+        }
+    </tbody>
+</table>
